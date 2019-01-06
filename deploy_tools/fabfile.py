@@ -35,8 +35,8 @@ def _create_or_update_dotenv():
         new_secret = ''.join(random.SystemRandom().choices('abcdefghijklmnopqrstuvwxyz0123456789', k=50))
         append('.env', f'DJANGO_SECRET_KEY={new_secret}')
 
-def update_static_files():
+def _update_static_files():
     run('./virtualenv/bin/python manage.py collectstatic --noinput')
 
-def update_database():
+def _update_database():
     run('./virtualenv/bin/python manage.py migrate --noinput')
